@@ -1,0 +1,44 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+function App() {
+  const [text, setText] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  const getTasks = async () => {
+    const res = await axios.get("http://localhost:5000/tasks");
+    setTasks(res.data);
+  };
+
+  useEffect(() => {
+    getTasks();
+  }, []);
+
+  const addTask = async () => {
+    await axios.post("http://localhost:5000/add", { text });
+    setText("");
+    getTasks();
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>To-Do App</h1>
+
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter task"
+      />
+
+      <button onClick={addTask}>Add Task</button>
+
+      <ul>
+        {tasks.map((t, i) => (
+          <li key={i}>{t.text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
