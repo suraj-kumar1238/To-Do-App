@@ -1,4 +1,4 @@
-To-Do App
+To-Do App.
 
 ✅ 🔥 Important Points for To-Do App
 🧠 Core Features
