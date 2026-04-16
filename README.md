@@ -1,4 +1,5 @@
-To-Do app
+To-DO app
+
 ✅ 🔥 Important Points for To-Do App
 🧠 Core Features
 Add new tasks easily
